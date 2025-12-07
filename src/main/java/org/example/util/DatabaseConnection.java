@@ -6,21 +6,19 @@ import java.sql.SQLException;
 
 public class DatabaseConnection {
 
-    // 🔹 Datele de conectare la baza ta Supabase
-    private static final String URL = "jdbc:postgresql://db-pool.ibcvzjwaqhnbpfvxlfpz.supabase.co:6543/postgres";
-    private static final String USER = "postgres";
-    private static final String PASSWORD = "Craciunescu2006"; // parola aleasă la crearea proiectului Supabase
+    private static final String URL = "jdbc:mysql://localhost:3306/clinica"; // exact numele DB din DataGrip
+    private static final String USER = "root"; // userul tău MySQL
+    private static final String PASSWORD = "Craciunescu2006"; // parola ta reală
 
-    // 🔹 Obiectul Connection (unic pentru întreaga aplicație)
     private static Connection connection;
 
     public static Connection getConnection() {
         if (connection == null) {
             try {
                 connection = DriverManager.getConnection(URL, USER, PASSWORD);
-                System.out.println("✅ Conexiune la baza de date realizată cu succes!");
+                System.out.println("Conectat cu succes la baza de date MySQL!");
             } catch (SQLException e) {
-                System.out.println("❌ Eroare la conectare: " + e.getMessage());
+                System.out.println("Eroare la conectare: " + e.getMessage());
             }
         }
         return connection;

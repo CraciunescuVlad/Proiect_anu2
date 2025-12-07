@@ -15,6 +15,10 @@ public class Pacient {
         this.telefon = telefon;
     }
 
+    public Pacient(String nume, String prenume, String cnp, String telefon) {
+        this(0,  nume, prenume, cnp, telefon);
+    }
+
     public int getId() {
         return id;
     }

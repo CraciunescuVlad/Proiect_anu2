@@ -16,8 +16,16 @@ public class Doctor {
         this.program = program;
     }
 
+    public Doctor(String nume, String specializare, String program) {
+        this(0, nume, specializare, program);
+    }
+
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNume() {
@@ -32,8 +40,16 @@ public class Doctor {
         return program;
     }
 
+    public List<Integer> getPacienti() {
+        return pacienti;
+    }
+
+    public void setPacienti(List<Integer> pacienti) {
+        this.pacienti = pacienti;
+    }
+
     @Override
     public String toString() {
-        return id + "," + nume + "," + specializare + "," + program;
+        return id + "," + nume + "," + specializare + "," + program + "," + pacienti;
     }
 }

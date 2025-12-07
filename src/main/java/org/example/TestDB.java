@@ -7,9 +7,9 @@ public class TestDB {
     public static void main(String[] args) {
         Connection conn = DatabaseConnection.getConnection();
         if (conn != null) {
-            System.out.println("✅ Conexiunea funcționează corect!");
+            System.out.println("Conexiunea funcționează perfect!");
         } else {
-            System.out.println("❌ Nu s-a putut stabili conexiunea!");
+            System.out.println("Nu s-a putut stabili conexiunea!");
         }
     }
 }

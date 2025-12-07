@@ -1,44 +1,72 @@
 package org.example.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Programare {
     private int id;
-    private int pacientId;
-    private int doctorId;
+    private String numeDoctor;
+    private String numePacient;
     private LocalDateTime data;
+    private String intervalOrar;
     private boolean efectuata;
 
-    public Programare(int id, int pacientId, int doctorId, LocalDateTime data, boolean efectuata) {
+    public Programare(int id, String numeDoctor, String numePacient, LocalDateTime data, String intervalOrar, boolean efectuata) {
         this.id = id;
-        this.pacientId = pacientId;
-        this.doctorId = doctorId;
+        this.numeDoctor = numeDoctor;
+        this.numePacient = numePacient;
         this.data = data;
+        this.intervalOrar = intervalOrar;
         this.efectuata = efectuata;
+    }
+
+    // Constructor pentru inserare (fără id)
+    public Programare(String numeDoctor, String numePacient, LocalDateTime data, String intervalOrar, boolean efectuata) {
+        this(0, numeDoctor, numePacient, data, intervalOrar, efectuata);
     }
 
     public int getId() {
         return id;
     }
 
-    public int getPacientId() {
-        return pacientId;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getDoctorId() {
-        return doctorId;
+    public String getNumeDoctor() {
+        return numeDoctor;
+    }
+
+    public String getNumePacient() {
+        return numePacient;
     }
 
     public LocalDateTime getData() {
         return data;
     }
 
+    public String getIntervalOrar() {
+        return intervalOrar;
+    }
+
     public boolean isEfectuata() {
         return efectuata;
     }
 
+    public void setEfectuata(boolean efectuata) {
+        this.efectuata = efectuata;
+    }
+
     @Override
     public String toString() {
-        return id + "," + pacientId + "," + doctorId + "," + data + "," + efectuata;
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");
+        return "Programare{" +
+                "id=" + id +
+                ", doctor='" + numeDoctor + '\'' +
+                ", pacient='" + numePacient + '\'' +
+                ", data=" + data.format(fmt) +
+                ", interval='" + intervalOrar + '\'' +
+                ", efectuata=" + (efectuata ? "Da" : "Nu") +
+                '}';
     }
 }
